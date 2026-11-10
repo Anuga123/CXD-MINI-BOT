@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: whatsapp-bot
+    ports:
+      - "3002:3002"
+      # - "127.0.0.1:3002:3002"
+    restart: unless-stopped

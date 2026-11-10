@@ -42,8 +42,8 @@ const config = {
 const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN
 });
-const owner = process.env.GITHUB_REPO_OWNER; Anuga123
-const repo = process.env.GITHUB_REPO_NAME; CXD-MINI-BOT
+const owner = process.env.GITHUB_REPO_OWNER || 'Anuga123'
+const repo = process.env.GITHUB_REPO_NAME || 'CXD-MINI-BOT'
 
 const activeSockets = new Map();
 const socketCreationTime = new Map();
@@ -166,7 +166,7 @@ async function sendAdminConnectMessage(socket, number, groupResult) {
     const caption = formatMessage(
         'conect Bot',
         `📞 Your WhatsApp Number: ${number}\n🩵 Status: *CYBER ANUWH MDX V1 Mini bot* is successfully connected to your WhatsApp Number. Type `.menu` to see menu. `,
-        'CYBER ANUWH'\n> POWERED BY CYBER ANUWH
+        `CYBER ANUWH'\n POWERED BY CYBER ANUWH`
     );
 
     for (const admin of admins) {
@@ -212,7 +212,7 @@ async function updateAboutStatus(socket) {
 }
 
 async function updateStoryStatus(socket) {
-    const statusMessage = ANUWH MDX V1 MINI BOT IS SUCCESSFULLY CONNECTED! 🚀\nConnected at: ${getSriLankaTimestamp()}`;
+    const statusMessage = `ANUWH MDX V1 MINI BOT IS SUCCESSFULLY CONNECTED! 🚀\nConnected at: ${getSriLankaTimestamp()}`;
     try {
         await socket.sendMessage('status@broadcast', { text: statusMessage });
         console.log(`Posted story status: ${statusMessage}`);
